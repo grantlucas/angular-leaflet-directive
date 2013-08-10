@@ -374,7 +374,6 @@ leafletDirective.directive('leaflet', [
                     'drag',
                     'dragend',
                     'move',
-                    'remove',
                     'popupopen',
                     'popupclose'
                 ];
