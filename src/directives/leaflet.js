@@ -25,6 +25,11 @@ angular.module("leaflet-directive", []).directive('leaflet', function ($log, $q,
                 return $scope.leafletMap.promise;
             };
 
+            $scope.leafletMarkers = $q.defer();
+            this.getMarkers = function() {
+                return $scope.leafletMarkers.promise;
+            };
+
             this.getLeafletScope = function() {
                 return $scope;
             };
