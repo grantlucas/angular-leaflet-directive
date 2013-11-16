@@ -165,6 +165,15 @@ angular.module("leaflet-directive").directive('markers', function ($log, $rootSc
                                 return null;
                             }
 
+                            // Add the dragend event listener to re-open popups of focus markers
+                            marker.on('dragend', function(e) {
+                                if (this.marker_data.message) {
+                                    if (this.marker_data.focus === true) {
+                                        e.target.openPopup();
+                                    }
+                                }
+                            }, {marker_data: marker_data});
+
                             var clearWatch = leafletScope.$watch(scope_watch_name, function(data, old_data) {
                                 if (!isDefinedAndNotNull(data)) {
                                     marker.closePopup();

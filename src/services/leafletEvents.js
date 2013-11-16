@@ -83,17 +83,6 @@ angular.module("leaflet-directive").factory('leafletEvents', function ($rootScop
                 // Put together broadcast name
                 var broadcastName = 'leafletDirectiveMarker.' + eventName;
 
-                // If this is a focused marker, ensure it's popup stays open after dragend
-                if(eventName === 'dragend')
-                {
-                    var marker_data = scope.markers[markerName];
-                    if (marker_data.message) {
-                        if (marker_data.focus === true) {
-                            e.target.openPopup();
-                        }
-                    }
-                }
-
                 // Safely broadcast the event
                 safeApply(scope, function(scope) {
                     if (logic === "emit") {
