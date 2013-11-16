@@ -114,7 +114,7 @@ angular.module("leaflet-directive").directive('eventBroadcast', function ($log, 
             });
 
             // Set up Marker Events
-            controller.getMarkers().then(function(leafletMarkers) {
+            leafletData.getMarkers().then(function(leafletMarkers) {
                 var markerEvents = [];
                 var i;
                 var eventName;
