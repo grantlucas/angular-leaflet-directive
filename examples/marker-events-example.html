@@ -23,12 +23,13 @@
                     lat: 51.505,
                     lng: -0.09,
                     draggable: true,
-                    message: "I'm a draggable marker"
+                    message: "I'm a draggable marker",
+                    focus: true
                 }
             }
 
             $scope.events = {
-                marker: {
+                markers: {
                     enable: leafletEvents.getAvailableMarkerEvents(),
                 }
             };
@@ -37,7 +38,7 @@
             var markerEvents = leafletEvents.getAvailableMarkerEvents();
             for (var k in markerEvents){
                 var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
-                $scope.$on(eventName, function(event){
+                $scope.$on(eventName, function(event, args){
                     $scope.eventDetected = event.name;
                 });
             }
